@@ -1,0 +1,87 @@
+object MainForm: TMainForm
+  Left = 255
+  Height = 461
+  Top = 163
+  Width = 572
+  ActiveControl = InputMemo
+  Caption = '艺术字符转换器'
+  ClientHeight = 461
+  ClientWidth = 572
+  OnCreate = FormCreate
+  LCLVersion = '3.4.0.0'
+  object StyleListBox: TListBox
+    Left = 9
+    Height = 386
+    Top = 63
+    Width = 145
+    Anchors = [akTop, akLeft, akBottom]
+    Items.Strings = (
+      '  Bold'
+      '  Italic'
+      '  Bold-Italic'
+      '  Script'
+      '  Bold-Script'
+      '  Fraktur'
+      '  Double-Struck'
+      '  Bold-Fraktur'
+      '  Sans-Serif'
+      '  Sans-Serif-Bold'
+      '  Sans-Serif-Italic'
+      '  Sans-Serif-Bold-Italic'
+      '  Monospace'
+    )
+    ItemHeight = 17
+    ItemIndex = 0
+    TabOrder = 0
+    OnClick = StyleListBoxClick
+  end
+  object MemoPanel: TPanel
+    Left = 160
+    Height = 385
+    Top = 63
+    Width = 402
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    ClientHeight = 385
+    ClientWidth = 402
+    TabOrder = 1
+    OnResize = MemoPanelResize
+    object InputMemo: TMemo
+      Left = 1
+      Height = 200
+      Top = 1
+      Width = 400
+      Align = alTop
+      Font.Height = -16
+      Lines.Strings = (
+        'abcdefghijklmnopqrstuvwxyz'
+        'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        '0123456789'
+        '无法转换的字符会保持原样'
+      )
+      ParentFont = False
+      TabOrder = 0
+      OnChange = InputMemoChange
+    end
+    object OutputMemo: TMemo
+      Left = 1
+      Height = 183
+      Top = 201
+      Width = 400
+      Align = alClient
+      Font.Height = -16
+      Lines.Strings = (
+        'OutputMemo'
+      )
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 1
+    end
+  end
+  object HelpLabel: TLabel
+    Left = 12
+    Height = 51
+    Top = 8
+    Width = 384
+    Caption = '选择一种字体风格，在上面的文本框中输入你要转换的内容。'#13#10'转换结果会自动输出到下面的文本框中，选中并复制你要的结果就行了。'#13#10'注：数字只适用其中的一部分风格。'
+  end
+end
